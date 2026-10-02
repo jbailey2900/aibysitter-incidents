@@ -1,0 +1,93 @@
+name: Submit an incident
+description: An AI coding agent change that went wrong in your own repository or work.
+title: "Incident: "
+labels: [submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Accepted incidents are published at https://aibysitting.net/Incidents under CC BY 4.0, credited to your GitHub username, with a link to this issue. Write facts: what the agent did, what it broke, how you found out, why review and CI missed it, and the fix.
+  - type: input
+    id: date
+    attributes:
+      label: Date
+      description: When the change merged or the incident happened, yyyy-MM-dd.
+      placeholder: "2026-10-02"
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent
+      description: The tool that wrote the change, and where it ran.
+      placeholder: Claude Code, Cursor agent, GitHub Copilot coding agent, Codex, ...
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      description: Optional.
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What the agent changed, and what went wrong.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: What broke, for whom, for how long.
+    validations:
+      required: true
+  - type: textarea
+    id: detection
+    attributes:
+      label: Detection
+      description: How it was noticed.
+    validations:
+      required: true
+  - type: textarea
+    id: why-missed
+    attributes:
+      label: Why review and CI missed it
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Fix
+    validations:
+      required: true
+  - type: textarea
+    id: reproduced-by
+    attributes:
+      label: Reproduced by
+      description: Optional. How you confirmed the agent's change caused it, not your own edit.
+    validations:
+      required: false
+  - type: input
+    id: caught-by
+    attributes:
+      label: Caught by
+      description: Optional. Aibysitter rule or check IDs that would have caught it (https://aibysitting.net/Rules), or none. Checked before publishing.
+      placeholder: none
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Terms
+      options:
+        - label: The incident is from my own repository or work.
+          required: true
+        - label: It names no people.
+          required: true
+        - label: It contains no secrets or private code.
+          required: true
+        - label: I license this submission under CC BY 4.0 and agree to be credited by my GitHub username.
+          required: true

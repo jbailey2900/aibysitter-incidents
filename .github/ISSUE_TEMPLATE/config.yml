@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Published incidents
+    url: https://aibysitting.net/Incidents
+    about: Read the incidents published so far.

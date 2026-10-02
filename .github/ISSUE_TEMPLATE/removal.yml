@@ -1,0 +1,30 @@
+name: Remove or correct an incident
+description: For the submitter of a published incident.
+title: "Removal: "
+labels: [removal]
+body:
+  - type: input
+    id: incident
+    attributes:
+      label: Incident
+      description: The incident URL on aibysitting.net.
+      placeholder: https://aibysitting.net/Incidents/1
+    validations:
+      required: true
+  - type: dropdown
+    id: request
+    attributes:
+      label: Request
+      options:
+        - Remove the incident
+        - Correct the incident
+        - Remove my name from the credit
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: For a correction, the text to change.
+    validations:
+      required: false
